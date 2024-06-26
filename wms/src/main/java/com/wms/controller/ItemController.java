@@ -5,22 +5,21 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.wms.common.QueryPageParam;
 import com.wms.common.Result;
+import com.wms.entity.Item;
+import com.wms.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.wms.entity.Supplier;
-import com.wms.service.SupplierService;
 
 import java.util.HashMap;
-
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("/item")
+public class ItemController {
 
-public class SupplierController {
     @Autowired
-    private SupplierService supplierService;
+    private ItemService itemService;
 
 
 
@@ -29,12 +28,12 @@ public class SupplierController {
         HashMap param = query.getParam();
         //Number id =(Number) param.get("id");
 
-        Page<Supplier> page = new Page();
+        Page<Item> page = new Page();
         page.setCurrent(query.getPageNum());
         page.setSize(query.getPageSize());
-        LambdaQueryWrapper<Supplier> lambdaQueryWrapper = new LambdaQueryWrapper();
+        LambdaQueryWrapper<Item> lambdaQueryWrapper = new LambdaQueryWrapper();
         //lambdaQueryWrapper.eq(Supplier::getId, id);
-        IPage result = supplierService.pageCC(page,lambdaQueryWrapper);
+        IPage result = itemService.pageCC(page,lambdaQueryWrapper);
         return Result.suc(result.getRecords(),result.getTotal());
     }
 

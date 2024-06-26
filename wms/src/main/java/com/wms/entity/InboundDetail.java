@@ -13,9 +13,9 @@ import java.sql.Timestamp;
 public class InboundDetail {
     // Getters 和 Setters
     private int id;
-    private int inboundId;
-    private String inboundNum;
-    private String itemNum;
+    private int inboundId;//可以不用
+    private String inboundNum;//入库单号
+    private String itemNum; //零件号
     private Integer packagingCapacity; // 包装容量允许为null，使用包装类 Integer
     private Integer planQuantity; // 计划入库数量允许为null，使用包装类 Integer
     private Integer realQuantity; // 实际入库数量允许为null，使用包装类 Integer

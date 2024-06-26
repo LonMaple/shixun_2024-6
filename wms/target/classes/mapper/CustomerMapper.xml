@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.wms.mapper.CustomerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wms.entity.User">
+        <id column="id" property="id" />
+        <result column="customer_Code" property="customer_Code" />
+        <result column="customer_Name" property="customer_Name" />
+        <result column="created_By" property="created_By" />
+        <result column="updated_By" property="updated_By" />
+        <result column="created_Time" property="created_Time" />
+        <result column="updated_Time" property="updated_Time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, customer_Code,customer_Name,created_By,updated_By,created_Time,updated_Time
+    </sql>
+
+
+    <select id="pageCC" resultType="com.wms.entity.User">
+        select * from wms_customer ${ew.customSqlSegment}
+    </select>
+</mapper>

@@ -34,14 +34,14 @@ public class InboundController {
         return inboundService.save_inbound(inbound)?Result.suc():Result.fail();
     }
     //更新
-    @PostMapping("/update")
-    public Result update(@RequestBody Inbound inbound){
-        return inboundService.update_inbound(inbound)?Result.suc():Result.fail();
-    }
+//    @PostMapping("/update")
+//    public Result update(@RequestBody Inbound inbound){
+//        return inboundService.update_inbound(inbound)?Result.suc():Result.fail();
+//    }
     //删除
     @GetMapping("/del")
-    public Result del(@RequestParam int num){
-        return inboundService.remove_inbound(num)?Result.suc():Result.fail();
+    public Result del(@RequestParam int id){
+        return inboundService.remove_inbound(id)?Result.suc():Result.fail();
     }
 
     @PostMapping("/listPage")

@@ -17,8 +17,8 @@ import com.wms.entity.Inbound;
 public interface InboundService extends IService<Inbound> {
     IPage pageCC(IPage<Inbound> page, Wrapper wrapper);
     boolean save_inbound(Inbound inbound);
-    boolean update_inbound(Inbound inbound);
-    boolean remove_inbound(int num);
+//    boolean update_inbound(Inbound inbound);
+    boolean remove_inbound(int id);
 
 
 

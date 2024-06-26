@@ -14,6 +14,6 @@ public interface InboundDetailMapper extends BaseMapper<InboundDetail> {
 
     IPage pageCC(IPage<InboundDetail> page, @Param(Constants.WRAPPER) Wrapper wrapper);
 
-    @Update("update `teamwork-614`.wms_inbound_detail set item_num = #{itemNum},real_quantity = #{realQuantity}")
+    @Update("update `teamwork-614`.wms_inbound_detail set inbound_num = #{inboundNum}, item_num = #{itemNum},real_quantity = #{realQuantity} where id = #{id}")
     boolean update_inboundDetail(InboundDetail inboundDetail);
 }
