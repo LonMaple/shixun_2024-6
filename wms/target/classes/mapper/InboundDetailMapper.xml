@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wms.mapper.InboundDetailMapper">
+
+    <select id="pageCC" resultType="com.wms.entity.InboundDetail">
+        select * from `teamwork-614`.wms_inbound_detail ${ew.customSqlSegment}
+    </select>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wms.entity.InboundDetail">
+        <id column="id" property="id" />
+        <result column="inbound_num" property="inbound_num" />
+        <result column="item_num" property="" />
+        <result column="package_capacity" property="package_capacity" />
+        <result column="plan_quantity" property="plan_quantity" />
+        <result column="real_quantity" property="real_quantity" />
+        <result column="create_by" property="create_by" />
+        <result column="update_by" property="update_by" />
+        <result column="create_time" property="create_time" />
+        <result column="update_time" property="update_time" />
+        <result column="supplier" property="supplier" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, inbound_num, item_num,  package_capacity, plan_quantity, real_quantity, create_by, update_by, craete_time, update_time
+    </sql>
+
+
+
+</mapper>

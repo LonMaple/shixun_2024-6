@@ -1,0 +1,123 @@
+DROP TABLE IF EXISTS `wms_item`;
+CREATE TABLE `wms_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `id_num` int(11) NOT NULL COMMENT '物料号',
+  `item_name` varchar(30) DEFAULT NULL COMMENT '货品名称',
+  `supplier` varchar(30) DEFAULT NULL COMMENT '供应商',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_container`;
+CREATE TABLE `wms_container` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `id_num` int(11) NOT NULL COMMENT '物料号',
+  `supplier` varchar(30) DEFAULT NULL COMMENT '供应商',
+  `containerCode` int(11) DEFAULT NULL COMMENT '包装型号',
+  `container` int(11) DEFAULT NULL COMMENT '包装容量',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_inventory`;
+CREATE TABLE `wms_inventory` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `id_num` int(11) NOT NULL COMMENT '物料号',
+  `inventory` int(30) DEFAULT NULL COMMENT '库存',
+  `low` int(11) DEFAULT NULL COMMENT '低储天数',
+  `high` int(11) DEFAULT NULL COMMENT '高储天数',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_inbound`;
+CREATE TABLE `wms_inbound` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `inbound_num` int(11) NOT NULL COMMENT '单号',
+  `inbound_status` int(30) DEFAULT NULL COMMENT '单状态',
+  `inbound_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '入库时间',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_inbound_detail`;
+CREATE TABLE `wms_inbound_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `inbound_id` int(11) NOT NULL COMMENT '单id',
+  `inbound_num` int(11) NOT NULL COMMENT '单号',
+  `part_num` int(11) NOT NULL COMMENT '零件号',
+  `container` int(11) DEFAULT NULL COMMENT '包装容量',
+  `plan_quantity` int(11) DEFAULT NULL COMMENT '计划入库数量',
+  `real_quantity` int(11) DEFAULT NULL COMMENT '实际入库数量',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_outbound`;
+CREATE TABLE `wms_outbound` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `outbound_num` int(11) NOT NULL COMMENT '单号',
+  `outbound_status` int(30) DEFAULT NULL COMMENT '单状态',
+  `outbound_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '出库时间',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_outbound_detail`;
+CREATE TABLE `wms_outbound_detail` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `outbound_id` int(11) NOT NULL COMMENT '单id',
+  `outbound_num` int(11) NOT NULL COMMENT '单号',
+  `part_num` int(11) NOT NULL COMMENT '零件号',
+  `container` int(11) DEFAULT NULL COMMENT '包装容量',
+  `plan_quantity` int(11) DEFAULT NULL COMMENT '计划出库数量',
+  `real_quantity` int(11) DEFAULT NULL COMMENT '实际出库数量',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_bar`;
+CREATE TABLE `wms_bar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `bar_num` int(11) NOT NULL COMMENT '物料号',
+  `supplier` varchar(30) NOT NULL COMMENT '供应商',
+  `bar_no` int(11) DEFAULT NULL COMMENT '条码号',
+  `status` int(11) DEFAULT NULL COMMENT '出入库状态',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `wms_supplier`;
+CREATE TABLE `wms_supplier` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '供应商代码',
+  `supplier_name` varchar(30) DEFAULT NULL COMMENT '供应商名称',
+  `create_by` varchar(30) DEFAULT NULL COMMENT '创建人',
+  `update_by` varchar(30) DEFAULT NULL COMMENT '更新人',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
