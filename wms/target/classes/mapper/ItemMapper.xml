@@ -7,7 +7,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wms.entity.Item">
         <id column="id" property="id" />
-        <id column="id_num" property="id_num" />
+        <id column="item_num" property="item_num" />
         <id column="item_name" property="item_name" />
         <result column="supplier" property="supplier" />
         <result column="create_by" property="create_by" />
@@ -18,7 +18,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, id_num, item_name, supplier, create_by,update_by,create_time,update_time
+        id, item_num, item_name, supplier, create_by,update_by,create_time,update_time
     </sql>
 
 

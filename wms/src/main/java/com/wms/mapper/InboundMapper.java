@@ -31,7 +31,7 @@ public interface InboundMapper extends BaseMapper<Inbound> {
 
     @Insert("insert into `teamwork-614`.wms_inbound_detail(inbound_id, inbound_num, item_num, package_capacity, plan_quantity) "
             +"values "
-            +"(#{inboundId},#{inboundNum},#{itemNum},#{packagingCapacity},#{planQuantity})")
+            +"(#{inboundId},#{inboundNum},#{itemNum},#{packageCapacity},#{planQuantity})")
     boolean save_inbound_detail(InboundDetail inboundDetail);
 
 //  boolean update_inbound(Inbound inbound);

@@ -26,5 +26,20 @@
     </sql>
 
 
+    <update id="update_inboundDetail">
+        UPDATE `teamwork-614`.wms_inbound_detail
+        <set>
+            <if test="inboundNum != null">inbound_num = #{inboundNum},</if>
+            <if test="itemNum != null">item_num = #{itemNum},</if>
+            <if test="packageCapacity != null">package_capacity = #{packageCapacity},</if>
+            <if test="planQuantity != null">plan_quantity = #{planQuantity},</if>
+            <if test="realQuantity != null">real_quantity = #{realQuantity},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
 
 </mapper>

@@ -15,7 +15,7 @@ import java.util.List;
 public class Item {
 
     private int id;
-    private String idNum;
+    private String itemNum;
     private String itemName;
     private String supplier;
     private String createBy;
@@ -36,12 +36,12 @@ public class Item {
         this.id = id;
     }
 
-    public String getIdNum() {
-        return idNum;
+    public String getItemNum() {
+        return itemNum;
     }
 
-    public void setIdNum(String idNum) {
-        this.idNum = idNum;
+    public void setItemNum(String itemNum) {
+        this.itemNum = itemNum;
     }
 
     public String getItemName() {

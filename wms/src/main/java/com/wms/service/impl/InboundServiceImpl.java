@@ -36,7 +36,7 @@ public class InboundServiceImpl extends ServiceImpl<InboundMapper, Inbound> impl
             //入库单明细
             inboundDetail_.setItemNum(inboundDetail.getItemNum());
             inboundDetail_.setPlanQuantity(inboundDetail.getPlanQuantity());
-            inboundDetail_.setPackagingCapacity(inboundDetail.getPackagingCapacity());
+            inboundDetail_.setPackageCapacity(inboundDetail.getPackageCapacity());
 
             a = a && inboundMapper.save_inbound_detail(inboundDetail_);
         }
