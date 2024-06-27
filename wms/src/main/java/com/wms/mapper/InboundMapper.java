@@ -23,7 +23,7 @@ public interface InboundMapper extends BaseMapper<Inbound> {
     IPage pageCC(IPage<Inbound> page, @Param(Constants.WRAPPER) Wrapper wrapper);
 
 
-    @Insert("insert into `teamwork-614`.wsm_inbound(inbound_num, supplier) "
+    @Insert("insert into `teamwork-614`.wms_inbound(inbound_num, supplier) "
             +"values "
             +"(#{inboundNum},#{supplier})")
     @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = int.class)
@@ -36,6 +36,6 @@ public interface InboundMapper extends BaseMapper<Inbound> {
 
 //  boolean update_inbound(Inbound inbound);
 
-    @Delete("DELETE FROM `teamwork-614`.wsm_inbound WHERE id = #{id};")//pass
+    @Delete("DELETE FROM `teamwork-614`.wms_inbound WHERE id = #{id};")//pass
     boolean remove_inbound(int id);
 }

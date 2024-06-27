@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wms.mapper.OutboundDetailMapper">
+
+    <select id="pageCC" resultType="com.wms.entity.OutboundDetail">
+        select * from `teamwork-614`.wms_outbound_detail ${ew.customSqlSegment}
+    </select>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wms.entity.OutboundDetail">
+        <id column="id" property="id" />
+        <result column="outbound_num" property="outbound_num" />
+        <result column="item_num" property="" />
+        <result column="package_capacity" property="package_capacity" />
+        <result column="plan_quantity" property="plan_quantity" />
+        <result column="real_quantity" property="real_quantity" />
+        <result column="create_by" property="create_by" />
+        <result column="update_by" property="update_by" />
+        <result column="create_time" property="create_time" />
+        <result column="update_time" property="update_time" />
+        <result column="supplier" property="supplier" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, Outbound_num, item_num,  package_capacity, plan_quantity, real_quantity, create_by, update_by, craete_time, update_time
+    </sql>
+
+
+    <update id="update_outboundDetail">
+        UPDATE `teamwork-614`.wms_outbound_detail
+        <set>
+            <if test="outboundNum != null">outbound_num = #{outboundNum},</if>
+            <if test="itemNum != null">item_num = #{itemNum},</if>
+            <if test="packageCapacity != null">package_capacity = #{packageCapacity},</if>
+            <if test="planQuantity != null">plan_quantity = #{planQuantity},</if>
+            <if test="realQuantity != null">real_quantity = #{realQuantity},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+</mapper>

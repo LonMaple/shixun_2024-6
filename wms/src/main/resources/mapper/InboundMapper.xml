@@ -3,7 +3,7 @@
 <mapper namespace="com.wms.mapper.InboundMapper">
 
     <select id="pageCC" resultType="com.wms.entity.Inbound">
-        select * from wsm_inbound ${ew.customSqlSegment}
+        select * from wms_inbound ${ew.customSqlSegment}
     </select>
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.wms.entity.Inbound">

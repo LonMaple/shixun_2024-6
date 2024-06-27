@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wms.mapper.InboundMapper">
+<mapper namespace="com.wms.mapper.OutboundMapper">
 
-    <select id="pageCC" resultType="com.wms.entity.Inbound">
-        select * from wms_inbound ${ew.customSqlSegment}
+    <select id="pageCC" resultType="com.wms.entity.Outbound">
+        select * from wms_outbound ${ew.customSqlSegment}
     </select>
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wms.entity.Inbound">
+    <resultMap id="BaseResultMap" type="com.wms.entity.Outbound">
         <id column="id" property="id" />
-        <result column="inbound_num" property="inbound_num" />
-        <result column="inbound_status" property="inbound_status" />
-        <result column="inbound_time" property="inbound_time" />
+        <result column="outbound_num" property="outbound_num" />
+        <result column="outbound_status" property="outbound_status" />
+        <result column="outbound_time" property="outbound_time" />
         <result column="create_by" property="create_by" />
         <result column="update_by" property="update_by" />
         <result column="create_time" property="create_time" />
@@ -20,7 +20,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, inbound_num, inbound_status, inbound_time, create_by, update_by, craete_time, update_time, supplier
+        id, outbound_num, outbound_status, outbound_time, create_by, update_by, craete_time, update_time, supplier
     </sql>
 
 

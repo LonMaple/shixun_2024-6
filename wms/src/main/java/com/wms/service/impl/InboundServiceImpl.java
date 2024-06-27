@@ -44,14 +44,9 @@ public class InboundServiceImpl extends ServiceImpl<InboundMapper, Inbound> impl
 
     }
 
-//    @Override
-//    public boolean update_inbound(Inbound inbound) {
-//        return inboundMapper.update_inbound(inbound);
-//    }
 
     @Override
     public boolean remove_inbound(int id) {
         return inboundMapper.remove_inbound(id);
     }
-
 }

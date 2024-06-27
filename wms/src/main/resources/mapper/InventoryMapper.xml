@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.wms.mapper.InventoryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wms.entity.Inventory">
+        <id column="id" property="id" />
+        <id column="item_num" property="item_num" />
+        <id column="quantity" property="quantity" />
+        <result column="create_by" property="create_by" />
+        <result column="update_by" property="update_by" />
+        <result column="create_time" property="create_time" />
+        <result column="update_time" property="update_time" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, item_num, quantity, create_by,update_by,create_time,update_time
+    </sql>
+
+
+    <select id="pageCC" resultType="com.wms.entity.Inventory">
+        select * from wms_inventory ${ew.customSqlSegment}
+    </select>
+
+    <update id="update_inventory">
+        UPDATE `teamwork-614`.wms_inventory
+        <set>
+            <if test="itemNum != null">item_num = #{itemNum},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+    
+</mapper>
