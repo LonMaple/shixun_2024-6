@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wms.mapper.OutboundMapper">
+
+    <resultMap id="dataMap" type="com.wms.entity.Outbound">
+        <id column="id" property="id"/>
+        <result column="outbound_num" property="outboundNum"/>
+        <result column="outbound_status" property="outboundStatus"/>
+        <result column="outbound_time" property="outboundTime"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+    <insert id="insert">
+        insert into wms_outbound(outbound_num,outbound_status)
+        VALUES (#{outboundNum},2)
+
+    </insert>
+
+    <delete id="deleteByOutboundNum">
+        delete from wms_outbound
+        where outbound_num=#{outboundNum}
+    </delete>
+
+    <select id="queryByOutboundDto" resultType="com.wms.entity.Outbound">
+        select *
+        from wms_outbound
+        where 1=1
+        <if test="outboundNum!=null">
+            and outbound_num = #{outboundNum}
+        </if>
+        <if test="outboundStatus!=null">
+            and outbound_status = #{outboundStatus}
+        </if>
+        <if test="customer!=null">
+            and outbound_num = #{customer}
+        </if>
+    </select>
+
+    <!--    <select id="queryRuleTreeByTreeId" resultMap="dataMap">-->
+<!--        select *-->
+<!--        from rule_tree-->
+<!--        where tree_id = #{treeId}-->
+<!--    </select>-->
+
+</mapper>
